@@ -186,7 +186,7 @@ export function QRCodeModal({ linkId, trigger }: QRCodeModalProps) {
                   <div className="text-center space-y-2 w-full">
                     <p className="text-sm font-medium">{link.short_code}</p>
                     <p className="text-xs text-muted-foreground break-all px-2">
-                      {getFullUrl()}
+                      {truncateUrl(getFullUrl(), 25)}
                     </p>
                     <div className="px-2">
                       <p className="text-xs text-muted-foreground">
