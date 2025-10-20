@@ -141,7 +141,7 @@ function CreateLinkForm() {
       setShortCode("");
     } catch (error) {
       console.error("Error creating link:", error);
-      toast.error("Có lỗi xảy ra khi tạo liên kết. Vui lòng thử lại.");
+      toast.error("Liên kết đã tồn tại hoặc bị lỗi.");
     } finally {
       setIsLoading(false);
     }
