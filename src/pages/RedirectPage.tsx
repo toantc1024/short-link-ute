@@ -85,7 +85,9 @@ const RedirectPage = () => {
             className="flex flex-col items-center justify-center gap-4"
           >
             <Spinner variant="ellipsis" className="h-24 w-24 text-primary" />
-            <p className=" text-4xl">Đang chuyển hướng</p>
+            <p className="text-2xl sm:text-3xl lg:text-4xl">
+              Đang chuyển hướng
+            </p>
           </motion.div>
         ) : hasError ? (
           <motion.div
@@ -96,10 +98,10 @@ const RedirectPage = () => {
           >
             <Link2Off className="h-24 w-24 text-destructive" />
             <div className="text-center">
-              <p className="text-4xl font-bold text-destructive mb-2">
+              <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-destructive mb-2">
                 Liên kết đã hỏng
               </p>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-sm sm:text-base lg:text-lg text-muted-foreground">
                 Liên kết này không tồn tại hoặc đã bị vô hiệu hóa
               </p>
             </div>
@@ -120,9 +122,9 @@ const RedirectPage = () => {
       >
         <div className="pb-4 pt-0 flex flex-col-reverse sm:flex-row items-center justify-between gap-x-2 gap-y-5 px-6 xl:px-4">
           {/* Copyright */}
-          <span className="text-center w-full text-muted-foreground">
-            Thực hiện bởi &copy; {new Date().getFullYear()} Phòng Truyền Thông -
-            Trường Đại học Sư phạm Kỹ thuật TP. Hồ Chí Minh
+          <span className="text-center w-full text-muted-foreground text-xs sm:text-sm">
+            Thực hiện bởi Phòng Truyền Thông <br /> Trường Đại học Sư phạm Kỹ
+            thuật TP. Hồ Chí Minh
           </span>
         </div>
       </motion.div>

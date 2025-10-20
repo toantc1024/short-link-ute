@@ -1,26 +1,24 @@
 import Logo from "../ui/logo";
-import Link from "../ui/link";
+// import Link from "../ui/link";
 
-const footerLinks = [
-  {
-    title: "Về chúng tôi",
-    href: "#",
-  },
-  {
-    title: "Liên hệ",
-    href: "#",
-  },
-  {
-    title: "Hỗ trợ",
-    href: "#",
-  },
-];
+// const footerLinks = [
+//   {
+//     title: "Về chúng tôi",
+//     href: "#",
+//   },
+//   {
+//     title: "Liên hệ",
+//     href: "#",
+//   },
+//   {
+//     title: "Hỗ trợ",
+//     href: "#",
+//   },
+// ];
 
 const Footer = () => {
   return (
     <div className="flex flex-col">
-      <div className=" absolute  z-[0] flex  items-center justify-center overflow-hidden rounded-lg  p-20"></div>
-
       <div className="grow" />
       <footer className="border-t  ">
         <div className="">
@@ -29,7 +27,7 @@ const Footer = () => {
             <div className="w-full flex justify-center">
               <Logo className="h-14 w-auto" />
             </div>
-
+            {/* 
             <ul className="mt-6 flex items-center gap-4 flex-wrap">
               {footerLinks.map(({ title, href }) => (
                 <li key={title}>
@@ -41,13 +39,13 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
           <div className="pb-4 pt-0 flex flex-col-reverse sm:flex-row items-center justify-between gap-x-2 gap-y-5 px-6 xl:px-4">
             {/* Copyright */}
-            <span className="text-center w-full text-muted-foreground">
-              Thực hiện bởi &copy; {new Date().getFullYear()} Phòng Truyền Thông
-              - Trường Đại học Sư phạm Kỹ thuật TP. Hồ Chí Minh
+            <span className="text-center w-full text-muted-foreground text-xs sm:text-sm leading-relaxed">
+              Thực hiện bởi Phòng Truyền Thông - Trường Đại học Sư phạm Kỹ thuật
+              TP. Hồ Chí Minh
             </span>
           </div>
         </div>
