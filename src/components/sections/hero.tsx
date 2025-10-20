@@ -172,7 +172,7 @@ function CreateLinkForm() {
         <div className="flex flex-col sm:flex-row gap-2 lg:w-auto">
           <Input
             className="!rounded-3xl py-5 px-4 text-sm sm:text-base sm:min-w-[180px] lg:min-w-[200px]"
-            placeholder="Mã tùy chỉnh (tùy chọn)"
+            placeholder="Kí tự rút gọn (Nếu muốn)"
             value={shortCode}
             onChange={(e) => setShortCode(e.target.value)}
             disabled={isLoading}
