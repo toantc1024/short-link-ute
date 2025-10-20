@@ -167,8 +167,8 @@ function CreateLinkForm() {
           required
         />
         <Input
-          className="w-auto !rounded-3xl py-5 px-4"
-          placeholder="Mã rút gọn (tùy chọn)"
+          className="w-auto !rounded-3xl py-5 md:min-w-[200px] px-4"
+          placeholder="Kí tự rút gọn (Nếu muốn)"
           value={shortCode}
           onChange={(e) => setShortCode(e.target.value)}
           disabled={isLoading}
