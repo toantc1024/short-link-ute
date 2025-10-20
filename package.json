@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docker:dev": "cd .. && docker-compose --profile dev up --build",
+    "docker:prod": "cd .. && docker-compose --profile prod up --build",
+    "docker:down": "cd .. && docker-compose down"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

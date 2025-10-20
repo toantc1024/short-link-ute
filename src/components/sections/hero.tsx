@@ -24,8 +24,8 @@ const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
 function HeroTitles() {
   return (
-    <div className="flex w-full  flex-col space-y-4 overflow-hidden pt-0">
-      <div className="absolute z-[-1] flex h-[500px] w-full flex-col items-center justify-center rounded-lg">
+    <div className="flex w-full flex-col space-y-4 sm:space-y-6 overflow-hidden pt-0">
+      <div className="absolute z-[-1] flex h-[300px] sm:h-[400px] lg:h-[500px] w-full flex-col items-center justify-center rounded-lg">
         <GridPattern
           squares={[
             [4, 4],
@@ -42,13 +42,13 @@ function HeroTitles() {
             [15, 10],
           ]}
           className={cn(
-            "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
+            "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)] sm:[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
             "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
           )}
         />
       </div>
       <motion.h1
-        className="text-center text-4xl font-medium leading-tight text-foreground sm:text-5xl md:text-6xl"
+        className="text-center text-3xl font-medium leading-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl px-4"
         initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
         animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
         transition={{
@@ -61,7 +61,7 @@ function HeroTitles() {
           (text, index) => (
             <motion.span
               key={index}
-              className="inline-block px-1 md:px-2 text-balance font-semibold"
+              className="inline-block px-1 sm:px-2 text-balance font-semibold"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -76,7 +76,7 @@ function HeroTitles() {
         )}
       </motion.h1>
       <motion.p
-        className="text-center text-lg leading-7 text-muted-foreground sm:leading-9 text-balance"
+        className="text-center text-base sm:text-lg leading-6 sm:leading-7 lg:leading-9 text-muted-foreground text-balance px-4 max-w-2xl mx-auto"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -85,7 +85,7 @@ function HeroTitles() {
           ease,
         }}
       >
-        Rút gọn liên kết và tạo mã QR dễ dàng
+        Rút gọn liên kết và tạo mã QR dễ dàng với công cụ miễn phí của HCMUTE
       </motion.p>
     </div>
   );
@@ -149,40 +149,45 @@ function CreateLinkForm() {
 
   return (
     <motion.div
-      className="mx-auto z-[9999] mt-6 flex w-full max-w-2xl flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
+      className="mx-auto z-[9999] mt-6 flex w-full max-w-4xl flex-col items-center justify-center px-4"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.8, duration: 0.8, ease }}
     >
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-2 rounded-4xl flex border-border border-1 w-full gap-2"
+        className="bg-white p-2 rounded-4xl flex flex-col lg:flex-row border-border border-1 w-full gap-2 shadow-lg"
       >
+        {/* Main URL Input - Full width on mobile, flex-1 on desktop */}
         <Input
-          className="!rounded-3xl w-full py-5 px-4"
+          className="!rounded-3xl w-full flex-1 py-5 px-4 text-sm sm:text-base"
           placeholder="Dán liên kết cần rút gọn"
           value={originalUrl}
           onChange={(e) => setOriginalUrl(e.target.value)}
           disabled={isLoading}
           required
         />
-        <Input
-          className="w-auto !rounded-3xl py-5 md:min-w-[200px] px-4"
-          placeholder="Kí tự rút gọn (Nếu muốn)"
-          value={shortCode}
-          onChange={(e) => setShortCode(e.target.value)}
-          disabled={isLoading}
-        />
-        <Button
-          type="submit"
-          className="!rounded-3xl !py-5"
-          effect="expandIcon"
-          icon={ArrowRight}
-          iconPlacement="right"
-          disabled={isLoading || !originalUrl.trim()}
-        >
-          {isLoading ? "Đang tạo..." : "Tạo"}
-        </Button>
+
+        {/* Short Code Input and Button Container */}
+        <div className="flex flex-col sm:flex-row gap-2 lg:w-auto">
+          <Input
+            className="!rounded-3xl py-5 px-4 text-sm sm:text-base sm:min-w-[180px] lg:min-w-[200px]"
+            placeholder="Mã tùy chỉnh (tùy chọn)"
+            value={shortCode}
+            onChange={(e) => setShortCode(e.target.value)}
+            disabled={isLoading}
+          />
+          <Button
+            type="submit"
+            className="!rounded-3xl !py-5 px-6 text-sm sm:text-base whitespace-nowrap"
+            effect="expandIcon"
+            icon={ArrowRight}
+            iconPlacement="right"
+            disabled={isLoading || !originalUrl.trim()}
+          >
+            {isLoading ? "Đang tạo..." : "Tạo liên kết"}
+          </Button>
+        </div>
       </form>
     </motion.div>
   );
@@ -205,7 +210,7 @@ export default function Hero2() {
           //   headerHeight > 0 ? `${Math.max(32, headerHeight * 0.5)}px` : "32px",
         }}
       >
-        <div className="rounded-4xl   h-full relative flex w-full bg flex-col items-center justify-start  pt-24 px-4 pt-8 sm:px-6 lg:px-8 transition-all duration-300">
+        <div className="rounded-4xl h-full relative flex w-full bg flex-col items-center justify-start pt-16 sm:pt-20 lg:pt-24 px-2 sm:px-4 lg:px-8 transition-all duration-300">
           {/* <div className="absolute w-full h-full top-[-150px] left-0 overflow-hidden pointer-events-none z-[-1]">
             <GridPattern
               squares={[
@@ -228,12 +233,12 @@ export default function Hero2() {
               )}
             />
           </div> */}
-          <div className="pb-4 relative sm:pb-8 ">
+          <div className="pb-6 sm:pb-8 lg:pb-12 relative w-full max-w-6xl">
             <HeroTitles />
             <CreateLinkForm />
           </div>
           <motion.div
-            className="mx-auto md:px-24 flex w-full flex-col items-center justify-center  space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
+            className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center px-2 sm:px-4 lg:px-6"
             initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8, ease }}
