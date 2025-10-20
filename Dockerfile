@@ -5,7 +5,7 @@ FROM node:22.12.0-alpine AS base
 WORKDIR /app
 
 # Copy package.json and package-lock.json (if available)
-COPY frontend/package*.json ./
+COPY package*.json ./
 
 # Install dependencies
 RUN npm ci --only=production
@@ -15,7 +15,7 @@ FROM base AS development
 # Install all dependencies (including dev dependencies)
 RUN npm ci
 # Copy source code
-COPY frontend/ .
+COPY . .
 # Expose port
 EXPOSE 5173
 # Start development server
@@ -26,7 +26,7 @@ FROM base AS build
 # Install all dependencies for building
 RUN npm ci
 # Copy source code
-COPY frontend/ .
+COPY . .
 # Build the application
 RUN npm run build
 
