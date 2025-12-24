@@ -5,7 +5,7 @@ import { Toaster } from "./components/ui/sonner";
 
 const App = () => {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className=" min-h-screen">
       <Header />
       <Hero />
       <Footer />
